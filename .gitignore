@@ -1,6 +1,9 @@
 test-results
 node_modules
 
+#Dev
+static/photos
+
 # Output
 .output
 .vercel

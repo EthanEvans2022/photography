@@ -64,6 +64,7 @@
 	},
 	"dependencies": {
 		"@node-rs/argon2": "^2.0.2",
+		"image-size": "^2.0.2",
 		"postgres": "^3.4.8"
 	},
 	"pnpm": {
