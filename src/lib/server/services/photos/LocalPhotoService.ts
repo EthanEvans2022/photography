@@ -2,6 +2,7 @@ import type IPhotoService from "./IPhotoService";
 import fs from "fs";
 import path from "path";
 import imageSize from "image-size";
+import { randomUUID } from "crypto";
 
 const PHOTOS_DIR = path.resolve("static/photos");
 
@@ -21,6 +22,7 @@ export default class LocalPhotoService implements IPhotoService {
                 const dimensions = imageSize(buffer);
 
                 return {
+                    id: randomUUID().toString(),
                     src: `/photos/${file}`,
                     alt: path.basename(file, path.extname(file)),
                     width: dimensions.width ?? 0,
