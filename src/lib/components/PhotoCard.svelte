@@ -19,9 +19,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		flex-shrink: 0;
-		height: 250px;
-		width: 250px;
+		width: 100%;
+		aspect-ratio: 1 / 1;
 		overflow: hidden;
 	}
 
