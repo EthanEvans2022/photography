@@ -3,4 +3,5 @@ interface Photo {
     alt?: string;
     width: number;
     height: number;
+    orientation: 'landscape' | 'portrait';
 }

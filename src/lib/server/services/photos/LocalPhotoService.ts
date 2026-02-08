@@ -24,7 +24,8 @@ export default class LocalPhotoService implements IPhotoService {
                     src: `/photos/${file}`,
                     alt: path.basename(file, path.extname(file)),
                     width: dimensions.width ?? 0,
-                    height: dimensions.height ?? 0
+                    height: dimensions.height ?? 0,
+                    orientation: dimensions.orientation === 1 ? 'landscape' : 'portrait'
                 };
             });
     }

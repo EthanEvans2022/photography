@@ -1,12 +1,12 @@
 <script lang="ts">
-	import PhotoWrapper from '$lib/components/PhotoWrapper.svelte';
+	import PhotoCard from '$lib/components/PhotoCard.svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>
 
 <div class="photos-container">
 	{#each data.photos as photo}
-		<PhotoWrapper {photo} />
+		<PhotoCard {photo} />
 	{/each}
 </div>
 
