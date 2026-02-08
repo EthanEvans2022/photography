@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PhotoCard from '$lib/components/PhotoCard.svelte';
+	import PhotoCard from '$lib/components/feature/PhotoCard.svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
 </script>

@@ -1,3 +1,4 @@
 export default interface IPhotoService {
-    getPhotos: () => Photo[];
-} 
+    getPhotos(): Photo[];
+    getPhoto(id: string): Photo | undefined;
+}

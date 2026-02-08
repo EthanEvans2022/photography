@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+
 	interface Props {
 		photo: Photo;
 	}
@@ -10,7 +12,7 @@
 	class="photo-card"
 	class:landscape={photo.orientation === 'landscape'}
 	class:portrait={photo.orientation === 'portrait'}
-	onclick={() => alert(photo.id)}
+	onclick={() => goto(`/photos/${photo.id}`)}
 >
 	<img src={photo.src} alt={photo.alt ?? ''} />
 </button>
