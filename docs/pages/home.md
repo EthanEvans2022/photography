@@ -2,24 +2,20 @@
 
 ## Purpose
 
-<!-- One sentence: what is this page for? -->
-
+This is the homepage of what I'm calling my 'HomeHub'. This in the long term will have links to multiple apps that I configure. For now, this will just have links to the photos page as well as a users page.
 ## Mockups
 
-<!-- Reference images from docs/design/mockups/ -->
-<!-- ![Home desktop](../design/mockups/home-desktop.png) -->
-<!-- ![Home mobile](../design/mockups/home-mobile.png) -->
+[HomeHub](../design/mockups/icloud-home.png) 
 
 ## Layout
 
-<!-- Describe the structure top-to-bottom. -->
-<!-- e.g. "Hero image full-bleed, then a 3-col grid of featured photos, then footer" -->
+For now, only include widgets for photos and the user's profile.
 
-| Viewport | Behavior                      |
-| -------- | ----------------------------- |
-| Desktop  | <!-- layout description -->   |
-| Tablet   | <!-- layout description -->   |
-| Mobile   | <!-- layout description -->   |
+| Viewport | Behavior                    |
+| -------- | --------------------------- |
+| Desktop  | <!-- layout description --> |
+| Tablet   | <!-- layout description --> |
+| Mobile   | <!-- layout description --> |
 
 ## Data Displayed
 
@@ -41,7 +37,11 @@
 
 <!-- Public / logged-in / admin? -->
 
-**Access:** <!-- who can see this page -->
+**Access:** This is accessible to anyone. However, the information shown depends on the users access.
+
+If no one is logged in, show only public photos in the photos preview. For the user widget, provide links to sign up or login.
+
+If logged in, show a preview of user photos available to the user as well as the user's info the user widget.
 
 ## Notes
 

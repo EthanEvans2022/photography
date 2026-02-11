@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pages/photos.md",
+                "file": "pages/home.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "photos"
+              "title": "home"
             }
           }
         ],
@@ -109,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "pages/photos.md",
+                "file": "pages/home.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for photos"
+              "title": "Backlinks for home"
             }
           },
           {
@@ -128,12 +128,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "pages/photos.md",
+                "file": "pages/home.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from photos"
+              "title": "Outgoing links from home"
             }
           },
           {
@@ -171,13 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "pages/photos.md",
+                "file": "pages/home.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of photos"
+              "title": "Outline of home"
             }
           }
         ]
@@ -200,11 +200,13 @@
   },
   "active": "a8f38a0508098b1e",
   "lastOpenFiles": [
+    "design/mockups/icloud-home.png",
+    "pages/home.md",
+    "pages/photos.md",
     "design/mockups/googlephotos.png",
     "design/mockups/googlephotos-mobile.png",
     "design/mockups/icloud-profile-dropdown.png",
     "design/mockups/icloud-apps-dropdown.png",
-    "pages/photos.md",
     "pages/photo-detail.md",
     "design/overview.md",
     "Pasted image 20260211165050.png",
