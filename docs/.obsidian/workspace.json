@@ -1,0 +1,216 @@
+{
+  "main": {
+    "id": "930fe5dad40fa64a",
+    "type": "split",
+    "children": [
+      {
+        "id": "db020a76999b3cda",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "06f0d4448ae8bc08",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "pages/photos.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "photos"
+            }
+          },
+          {
+            "id": "a8f38a0508098b1e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "pages/photos.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "photos"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e1a9b0059010598f",
+    "type": "split",
+    "children": [
+      {
+        "id": "3dc45598f36ceec7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fdc520bf3ae8aed6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "5d08f19e5c074556",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "4fe79e50d3f3aa51",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "69a9e5800199f2e1",
+    "type": "split",
+    "children": [
+      {
+        "id": "0cb697e79d823d02",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f8d69ae505381b79",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "pages/photos.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for photos"
+            }
+          },
+          {
+            "id": "326083928da5d1d9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "pages/photos.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from photos"
+            }
+          },
+          {
+            "id": "ce32e54a37608e6c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "593b3a848df1bc22",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "1ce855b3ff952fcb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "pages/photos.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of photos"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "a8f38a0508098b1e",
+  "lastOpenFiles": [
+    "design/mockups/googlephotos.png",
+    "design/mockups/googlephotos-mobile.png",
+    "design/mockups/icloud-profile-dropdown.png",
+    "design/mockups/icloud-apps-dropdown.png",
+    "pages/photos.md",
+    "pages/photo-detail.md",
+    "design/overview.md",
+    "Pasted image 20260211165050.png",
+    "design/mockups/icloud-mobile.png",
+    "architecture/data-model.md",
+    "architecture/services.md",
+    "design/mockups/icloud.png"
+  ]
+}
