@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import type { Photo } from '$lib/types/photo';
 
 	interface Props {
 		photo: Photo;
@@ -10,11 +11,9 @@
 
 <button
 	class="photo-card"
-	class:landscape={photo.orientation === 'landscape'}
-	class:portrait={photo.orientation === 'portrait'}
 	onclick={() => goto(`/photos/${photo.id}`)}
 >
-	<img src={photo.src} alt={photo.alt ?? ''} />
+	<img src={photo.src} alt={photo.id} />
 </button>
 
 <style>
@@ -27,26 +26,20 @@
 		overflow: hidden;
 		border: none;
 		padding: 0;
-		background: none;
+		background: var(--clr-surface-a10);
 		cursor: pointer;
-		border-radius: 4px;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		border-radius: var(--radius-sm);
+		box-shadow: 0 2px 8px color-mix(in srgb, var(--clr-surface-tonal-a30) 40%, transparent);
 		transition: box-shadow 0.2s ease;
 	}
 
 	.photo-card:hover {
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+		box-shadow: 0 4px 16px color-mix(in srgb, var(--clr-surface-tonal-a30) 70%, transparent);
 	}
 
-	.landscape img {
-		height: 100%;
-		max-width: 100%;
-		object-fit: cover;
-	}
-
-	.portrait img {
+	.photo-card img {
 		width: 100%;
-		height: auto;
-		object-fit: contain;
+		height: 100%;
+		object-fit: cover;
 	}
 </style>

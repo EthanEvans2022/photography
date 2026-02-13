@@ -1,4 +1,8 @@
 <script lang="ts">
+	import '@fontsource/inter/400.css';
+	import '@fontsource/inter/500.css';
+	import '@fontsource/inter/600.css';
+	import '../app.css';
 	import { page } from '$app/state';
 	import { locales, localizeHref } from '$lib/paraglide/runtime';
 	import favicon from '$lib/assets/favicon.svg';
