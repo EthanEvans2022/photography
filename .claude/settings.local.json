@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run check:*)",
+      "Bash(ls \"c:\\\\Users\\\\eth12\\\\git\\\\photography\\\\node_modules\\\\.bin\"\" | head -20 2>&1 || ls \"c:/Users/eth12/git/photography/node_modules/.bin/ \")"
+    ]
+  }
+}

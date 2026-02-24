@@ -11,18 +11,25 @@ const PHOTOS_JSON = path.resolve(env.PHOTOS_JSON_PATH ?? 'static/photos/photos.j
 function loadPhotosFromFile(): Photo[] {
 	if (!fs.existsSync(PHOTOS_JSON)) return [];
 	const raw: LocalPhoto[] = JSON.parse(fs.readFileSync(PHOTOS_JSON, 'utf-8'));
-	return raw.map((entry) => ({
-		...entry,
-		deletedAt: null,
-		createdAt: entry.metadata.datetime
-	}));
+	const seen = new Set<string>();
+	return raw
+		.filter((entry) => {
+			if (seen.has(entry.id)) return false;
+			seen.add(entry.id);
+			return true;
+		})
+		.map((entry) => ({
+			...entry,
+			deletedAt: null,
+			createdAt: entry.metadata.datetime
+		}));
 }
 
 function applyFilters(list: Photo[], filters?: PhotoFilters): Photo[] {
 	if (!filters) return list;
 
 	return list.filter((p) => {
-		if (filters.favorite && !p.favorite) return false;
+		if (filters.favorite !== undefined && p.favorite !== filters.favorite) return false;
 		if (filters.dateFrom && p.metadata.datetime < filters.dateFrom) return false;
 		if (filters.dateTo && p.metadata.datetime > filters.dateTo) return false;
 
@@ -52,9 +59,11 @@ export default class LocalPhotoService implements IPhotoService {
 	getPhotos(filters?: PhotoFilters): Photo[] {
 		const active = this.photos.filter((p) => !p.deletedAt);
 		const filtered = applyFilters(active, filters);
-		return filtered.sort(
-			(a, b) => new Date(b.metadata.datetime).getTime() - new Date(a.metadata.datetime).getTime()
-		);
+		return filtered.sort((a, b) => {
+			const dt =
+				new Date(b.metadata.datetime).getTime() - new Date(a.metadata.datetime).getTime();
+			return dt !== 0 ? dt : a.id.localeCompare(b.id);
+		});
 	}
 
 	getPhoto(id: string): Photo | undefined {

@@ -50,5 +50,17 @@ const result: LocalPhoto[] = files.map((file) => {
 	};
 });
 
-fs.writeFileSync(JSON_PATH, JSON.stringify(result, null, '\t'));
-console.log(`Wrote ${result.length} entries to ${JSON_PATH}`);
+const seen = new Map<string, string>();
+const deduped = result.filter((entry) => {
+	if (seen.has(entry.id)) {
+		console.warn(
+			`Duplicate id "${entry.id}" — skipping ${entry.src} (kept ${seen.get(entry.id)})`
+		);
+		return false;
+	}
+	seen.set(entry.id, entry.src);
+	return true;
+});
+
+fs.writeFileSync(JSON_PATH, JSON.stringify(deduped, null, '\t'));
+console.log(`Wrote ${deduped.length} entries to ${JSON_PATH}`);

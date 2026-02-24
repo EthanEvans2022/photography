@@ -10,7 +10,8 @@ export const user = pgTable('user', {
 	passwordHash: text('password_hash').notNull(),
 	displayName: text('display_name').notNull(),
 	email: text('email').notNull().unique(),
-	avatarUrl: text('avatar_url')
+	avatarUrl: text('avatar_url'),
+	role: text('role', { enum: ['owner', 'viewer'] }).notNull().default('viewer')
 });
 
 export const session = pgTable('session', {
