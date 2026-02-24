@@ -42,14 +42,16 @@ vi.mock('$lib/server/services/photos/LocalPhotoService', () => {
 	];
 
 	return {
-		default: vi.fn().mockImplementation(() => ({
-			getPhotos: vi.fn((filters?: { visibility?: string }) => {
-				if (filters?.visibility === 'public') {
-					return photos.filter((p) => p.visibility === 'public');
-				}
-				return photos;
-			})
-		}))
+		default: vi.fn().mockImplementation(function () {
+			return {
+				getPhotos: vi.fn((filters?: { visibility?: string }) => {
+					if (filters?.visibility === 'public') {
+						return photos.filter((p) => p.visibility === 'public');
+					}
+					return photos;
+				})
+			};
+		})
 	};
 });
 

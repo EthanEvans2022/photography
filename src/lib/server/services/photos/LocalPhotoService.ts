@@ -29,7 +29,7 @@ function applyFilters(list: Photo[], filters?: PhotoFilters): Photo[] {
 	if (!filters) return list;
 
 	return list.filter((p) => {
-		if (filters.favorite && !p.favorite) return false;
+		if (filters.favorite !== undefined && p.favorite !== filters.favorite) return false;
 		if (filters.dateFrom && p.metadata.datetime < filters.dateFrom) return false;
 		if (filters.dateTo && p.metadata.datetime > filters.dateTo) return false;
 

@@ -4,7 +4,7 @@ import { photoService, getVisiblePhotos } from '../photo-utils.server';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-export const load: PageServerLoad = ({ params, locals }) => {
+export const load: PageServerLoad = async ({ params, locals }) => {
 	const photo = photoService.getPhoto(params.id);
 	if (!photo) error(404, 'Photo not found');
 

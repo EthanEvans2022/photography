@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 import { photoService } from '../../photo-utils.server';
 import type { Photo } from '$lib/types/photo';
 
-export const load: PageServerLoad = ({ params, locals }) => {
+export const load: PageServerLoad = async ({ params, locals }) => {
 	const album = photoService.getAlbum(params.id);
 	if (!album) error(404, 'Album not found');
 

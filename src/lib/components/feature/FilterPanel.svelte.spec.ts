@@ -15,7 +15,7 @@ describe('FilterPanel', () => {
 
 	it('renders Tags section', async () => {
 		render(FilterPanel, { allTags, allPeople, isAuthenticated: false });
-		await expect.element(page.getByText('Tags')).toBeVisible();
+		await expect.element(page.getByText('Tags', { exact: true })).toBeVisible();
 	});
 
 	it('shows empty-tags placeholder when no tags selected', async () => {
@@ -30,7 +30,7 @@ describe('FilterPanel', () => {
 
 	it('shows People section when authenticated', async () => {
 		render(FilterPanel, { allTags, allPeople, isAuthenticated: true });
-		await expect.element(page.getByText('People')).toBeVisible();
+		await expect.element(page.getByText('People', { exact: true })).toBeVisible();
 	});
 
 	it('shows empty-people placeholder when authenticated and no people selected', async () => {

@@ -60,7 +60,7 @@
 
 	.menu {
 		position: absolute;
-		top: calc(100% + var(--space-1));
+		top: calc(100% + var(--space-1, 4px));
 		right: 0;
 		min-width: 180px;
 		background-color: var(--clr-surface-a10);
