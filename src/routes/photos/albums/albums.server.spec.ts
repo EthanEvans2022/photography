@@ -27,7 +27,7 @@ const privateAlbum = {
 	createdAt: '2026-01-01T00:00:00.000Z'
 };
 
-vi.mock('../+page.server', () => ({
+vi.mock('../photo-utils.server', () => ({
 	photoService: {
 		getAlbums: vi.fn(() => [publicAlbum, sharedAlbum, privateAlbum]),
 		getAlbum: vi.fn((id: string) => {

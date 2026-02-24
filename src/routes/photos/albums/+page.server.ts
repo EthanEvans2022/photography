@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { photoService, getVisiblePhotos } from '../+page.server';
+import { photoService } from '../photo-utils.server';
 
 export const load: PageServerLoad = ({ locals }) => {
 	if (!locals.user) error(403, 'Sign in to view albums');

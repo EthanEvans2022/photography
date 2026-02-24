@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
-import { photoService, getVisiblePhotos } from '../+page.server';
+import { photoService, getVisiblePhotos } from '../photo-utils.server';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 

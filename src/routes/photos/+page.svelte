@@ -20,29 +20,34 @@
 	const hasSelection = $derived(selectedIds.size > 0);
 	const isOwner = $derived(data.user?.role === 'owner');
 
-	// Infinite scroll
-	let allPhotos = $state<Photo[]>(data.photos);
-	let hasMore = $state(data.hasMore);
+	// Infinite scroll — track extra photos appended by loadMore separately
+	let extraPhotos = $state<Photo[]>([]);
+	let loadedHasMore = $state<boolean | null>(null);
 	let loadingMore = $state(false);
 	let sentinel: HTMLDivElement | undefined = $state();
+	let gridWrapper: HTMLDivElement | undefined = $state();
 
-	// When server-side data changes (filter/sort), reset local state
+	const allPhotos = $derived([...data.photos, ...extraPhotos]);
+	const hasMore = $derived(loadedHasMore ?? data.hasMore);
+
+	// When server-side data changes (filter/navigation), reset local state
 	$effect(() => {
-		allPhotos = data.photos;
-		hasMore = data.hasMore;
+		data.photos; // track dependency
+		extraPhotos = [];
+		loadedHasMore = null;
 		selectedIds = new Set();
 	});
 
 	// Intersection observer for infinite scroll
 	$effect(() => {
-		if (!sentinel) return;
+		if (!sentinel || !gridWrapper) return;
 		const obs = new IntersectionObserver(
 			(entries) => {
 				if (entries[0].isIntersecting && hasMore && !loadingMore) {
 					loadMore();
 				}
 			},
-			{ threshold: 0.1 }
+			{ root: gridWrapper, rootMargin: '200px', threshold: 0 }
 		);
 		obs.observe(sentinel);
 		return () => obs.disconnect();
@@ -56,14 +61,19 @@
 			const params = new URLSearchParams(page.url.searchParams);
 			params.set('offset', String(allPhotos.length));
 			const res = await fetch(`/photos/more?${params.toString()}`);
-			if (res.ok) {
-				const { photos, hasMore: more } = (await res.json()) as {
-					photos: Photo[];
-					hasMore: boolean;
-				};
-				allPhotos = [...allPhotos, ...photos];
-				hasMore = more;
+			if (!res.ok) {
+				loadedHasMore = false;
+				return;
 			}
+			const { photos, hasMore: more } = (await res.json()) as {
+				photos: Photo[];
+				hasMore: boolean;
+			};
+			extraPhotos = [...extraPhotos, ...photos];
+			loadedHasMore = more;
+		} catch (err) {
+			console.error('[loadMore] fetch failed:', err);
+			loadedHasMore = false;
 		} finally {
 			loadingMore = false;
 		}
@@ -233,6 +243,7 @@
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			class="grid-wrapper"
+			bind:this={gridWrapper}
 			onclick={(e) => {
 				if ((e.target as HTMLElement).closest('.photo-item') === null) deselectAll();
 			}}

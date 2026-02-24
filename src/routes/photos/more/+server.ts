@@ -1,6 +1,6 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { photoService, getVisiblePhotos } from '../+page.server';
+import { photoService, getVisiblePhotos } from '../photo-utils.server';
 import type { PhotoFilters } from '$lib/server/services/photos/IPhotoService';
 
 const LIMIT = 50;

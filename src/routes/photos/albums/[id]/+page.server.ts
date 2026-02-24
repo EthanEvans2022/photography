@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { photoService } from '../../+page.server';
+import { photoService } from '../../photo-utils.server';
 import type { Photo } from '$lib/types/photo';
 
 export const load: PageServerLoad = ({ params, locals }) => {

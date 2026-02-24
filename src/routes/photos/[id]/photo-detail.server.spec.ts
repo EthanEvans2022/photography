@@ -42,7 +42,7 @@ const privatePhoto = {
 	createdAt: '2026-01-03T00:00:00.000Z'
 };
 
-vi.mock('../+page.server', () => ({
+vi.mock('../photo-utils.server', () => ({
 	photoService: {
 		getPhoto: vi.fn((id: string) => {
 			if (id === publicPhoto.id) return publicPhoto;

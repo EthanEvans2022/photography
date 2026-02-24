@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { getVisiblePhotos, photoService } from './+page.server';
+import { getVisiblePhotos, photoService } from './photo-utils.server';
 import type { Photo } from '$lib/types/photo';
 
 function makePhoto(id: string, overrides: Partial<Photo> = {}): Photo {

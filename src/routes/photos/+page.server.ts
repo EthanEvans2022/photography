@@ -1,32 +1,11 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
-import LocalPhotoService from '$lib/server/services/photos/LocalPhotoService';
-import type { Photo } from '$lib/types/photo';
 import type { PhotoFilters } from '$lib/server/services/photos/IPhotoService';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-
-export const photoService = new LocalPhotoService();
+import { photoService, getVisiblePhotos } from './photo-utils.server';
 
 const LIMIT = 50;
-
-export function getVisiblePhotos(
-	user: { id: string; role: string } | null,
-	filters: PhotoFilters = {}
-): Photo[] {
-	if (!user) {
-		return photoService.getPhotos({ ...filters, visibility: 'public' });
-	}
-	if (user.role === 'owner') {
-		return photoService.getPhotos(filters);
-	}
-	// viewer: public + shared where user is tagged
-	return photoService.getPhotos(filters).filter(
-		(p) =>
-			p.visibility === 'public' ||
-			(p.visibility === 'shared' && p.people.includes(user.id))
-	);
-}
 
 function parseFilters(searchParams: URLSearchParams): PhotoFilters {
 	const filters: PhotoFilters = {};
